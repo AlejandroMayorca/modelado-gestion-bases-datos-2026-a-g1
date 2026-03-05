@@ -1,0 +1,54 @@
+Modelo Entidad-Relación (MER)
+
+Entidades:
+
+Autor:
+- id_autor (PK)
+- nombre
+- apellido
+- nacionalidad
+- fecha_nacimiento
+
+Libro:
+- id_libro (PK)
+- titulo
+- isbn
+- anio_publicacion
+- editorial
+- cantidad_disponible
+- id_categoria (FK)
+
+Categoria:
+- id_categoria (PK)
+- nombre_categoria
+- descripcion
+
+Usuario:
+- id_usuario (PK)
+- nombre
+- apellido
+- correo_electronico
+- telefono
+- fecha_registro
+
+Prestamo:
+- id_prestamo (PK)
+- fecha_prestamo
+- fecha_devolucion
+- estado_prestamo
+- id_usuario (FK)
+- id_libro (FK)
+
+Relaciones:
+
+Autor - Libro (N:M):
+Tabla intermedia Autor_Libro con FKs de ambos.
+
+Libro - Categoria (N:1):
+FK id_categoria en la tabla Libros.
+
+Usuario - Prestamo (1:N):
+FK id_usuario en la tabla Prestamos.
+
+Prestamo - Libro (N:1):
+FK id_libro en la tabla Prestamos.
